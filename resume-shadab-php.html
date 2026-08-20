@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Shadab - PHP Developer Resume</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://gstatic.com" crossorigin />
+    <link href="https://googleapis.com" rel="stylesheet" />
+
+    <style>
+      @import url("https://googleapis.com");
+      * {
+        box-sizing: border-box;
+        font-family: "Black Ops One", system-ui, sans-serif;
+        font-weight: 400;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: #050505;
+        color: #eee;
+        line-height: 1.55;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .ml-16 {
+        margin-left: 16px;
+      }
+      .clear {
+        clear: both;
+      }
+      .page {
+        width: 1180px;
+        margin: 35px auto;
+        background: #090909;
+        border: 1px solid #222;
+        box-shadow: 0 25px 80px #000;
+      }
+      .header {
+        padding: 55px;
+        border-bottom: 1px solid #242424;
+        background: linear-gradient(120deg, #090909, #0d0d0d);
+      }
+      .head-wrap {
+        width: 80%;
+        float: left;
+      }
+      .name {
+        font-size: 76px;
+        line-height: 0.9;
+        letter-spacing: -4px;
+        margin: 0;
+      }
+      .name span {
+        color: #777bb4;
+      }
+      .role {
+        margin: 18px 0 0;
+        color: #aaa;
+        font-size: 20px;
+      }
+      .contact {
+        margin-top: 28px;
+        color: #888;
+        font-size: 12px;
+      }
+      .contact i {
+        color: #777bb4;
+        margin-right: 7px;
+      }
+      .badge {
+        align-self: start;
+        border: 1px solid #777bb4;
+        color: #aaa;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 11px;
+        letter-spacing: 1px;
+        float: right;
+        width: 20%;
+        text-align: center;
+      }
+      .sidebar {
+        float: left;
+        width: 30%;
+        padding: 38px 30px;
+        background: #080808;
+      }
+      .main {
+        border-left: 1px solid #222;
+        float: left;
+        width: 70%;
+        padding: 38px 45px;
+      }
+      .section {
+        margin-bottom: 42px;
+      }
+      .section:last-child {
+        margin-bottom: 0;
+      }
+      .title {
+        font-size: 11px;
+        letter-spacing: 3px;
+        color: #777bb4;
+        font-weight: 700;
+        margin: 0 0 18px;
+      }
+      .about {
+        font-size: 13px;
+        color: #aaa;
+      }
+      .item {
+        margin-bottom: 18px;
+      }
+      .item:last-child {
+        margin-bottom: 0;
+      }
+      .item h3 {
+        font-size: 14px;
+        margin: 0 0 4px;
+      }
+      .item p {
+        font-size: 12px;
+        color: #777;
+        margin: 0;
+      }
+      .year {
+        font-size: 10px;
+        color: #777bb4;
+      }
+      .tag {
+        font-size: 10px;
+        color: #aaa;
+        border: 1px solid #292929;
+        padding: 6px 8px;
+        border-radius: 5px;
+        background: #0d0d0d;
+        margin: 7px;
+        float: left;
+      }
+      .timeline {
+        position: relative;
+      }
+      .job {
+        position: relative;
+        padding: 0 0 30px 28px;
+        margin-bottom: 28px;
+        border-left: 1px solid #333;
+      }
+      .job:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .job:before {
+        content: "";
+        position: absolute;
+        left: -5px;
+        top: 2px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #777bb4;
+      }
+      .job h2 {
+        font-size: 18px;
+        margin: 0;
+        width: 80%;
+        float: left;
+      }
+      .job-date {
+        font-size: 10px;
+        color: #777bb4;
+        white-space: nowrap;
+        float: right;
+        width: 20%;
+        text-align: right;
+      }
+      .company {
+        font-size: 13px;
+        color: #aaa;
+        margin: 3px 0 12px;
+      }
+      .job p {
+        font-size: 12px;
+        color: #777;
+        margin: 0;
+      }
+      .project {
+        padding: 18px;
+        margin: 12;
+        border: 1px solid #242424;
+        background: #0b0b0b;
+        min-height: 80px;
+        width: 48%;
+        float: left;
+        margin: 1%;
+      }
+      .project i {
+        color: #777bb4;
+        margin-right: 8px;
+      }
+      .project.red-text i {
+        color: #ff0000;
+      }
+      .project span {
+        font-size: 11px;
+        color: #aaa;
+        word-break: break-all;
+      }
+      .edu {
+        border: 1px solid #777bb4;
+        padding: 14px;
+        width: 100%;
+        float: left;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .edu h3 {
+        font-size: 13px;
+        margin: 0;
+      }
+      .edu p {
+        font-size: 11px;
+        color: #777;
+        margin: 3px 0 0;
+      }
+      .footer {
+        padding: 20px 30px;
+        border-top: 1px solid #222;
+        color: #555;
+        font-size: 10px;
+        text-align: right;
+      }
+      @media (max-width: 1200px) {
+        .name{
+          font-size: 42px;
+        }
+        .page {
+          width: 100%;
+          margin: 0;
+          border: 0;
+        }
+      }
+      @media (max-width: 850px) {
+        .page {
+          width: 100%;
+          margin: 0;
+          border: 0;
+        }
+        .header {
+          padding: 25px;
+        }
+        .head-wrap {
+          width: 100%;
+        }
+        .badge {
+          display: none;
+        }
+        .sidebar {
+          width: 100%;
+          border-right: 0;
+          border-bottom: 1px solid #222;
+          padding: 30px 25px;
+        }
+        .main {
+          width: 100%;
+          padding: 35px 25px;
+        }
+      }
+      @media (max-width: 550px) {
+        .name {
+          letter-spacing: -2px;
+        }
+        .role {
+          font-size: 16px;
+        }
+        .job-head {
+          display: block;
+          width: 100%;
+        }
+        .job-date {
+          width: 100%;
+          display: block;
+          margin-top: 5px;
+          float: left;
+          text-align: left;
+        }
+        .project {
+          width: 100%;
+        }
+      }
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-overlay.show {
+        display: block;
+      }
+
+      .modal-box {
+        background: #000000;
+        width: 90%;
+        max-width: 400px;
+        border-radius: 5px;
+        position: absolute;
+        border: 1px solid #777bb4;
+        top: 50%;
+        left: 50%;
+        -o-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+
+      .modal-head {
+        background-color: #777bb4;
+        color: #ffffff;
+        padding: 20px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .modal-body {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .modal-body .ok {
+        width: 100%;
+        padding: 10px 15px;
+        background-color: #777bb4;
+        color: #ffffff;
+        border: 0;
+        outline: 0;
+        margin-top: 30px;
+        border-radius: 10px;
+      }
+
+      .modal-body {
+        font-size: 12px;
+      }
+
+      .modal-close {
+        display: none;
+        position: absolute;
+        right: 12px;
+        top: 8px;
+        font-size: 24px;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+      .red-text {
+        color: #ff0000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="head-wrap">
+          <h1 class="name">Shadab <span>Ansari</span></h1>
+          <div class="role">PHP Full Stack Developer</div>
+          <div class="contact">
+            <span class=""
+              ><i class="fa-solid fa-location-dot"></i>Kurla (West),
+              Mumbai</span
+            >
+          </div>
+        </div>
+        <div class="badge">PHP DEVELOPER</div>
+        <div class="clear"></div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar">
+          <section class="section">
+            <h2 class="title">ABOUT</h2>
+            <p class="about">
+              4+ years of experience in dynamic website developing and
+              maintaining websites. Proficient in Core PHP, Laravel,
+              CodeIgniter, HTML, CSS, JavaScript, jQuery, React, MYSQL DBMS with
+              SQL. Skilled in responsive, optimize backend, UI/UX code seamless
+              performance.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2 class="title">TECHNICAL SKILLS</h2>
+            <div class="tags">
+              <span class="tag">HTML</span><span class="tag">CSS</span
+              ><span class="tag">JavaScript</span>
+              <span class="tag">jQuery</span><span class="tag">React</span
+              ><span class="tag">Core PHP</span> <span class="tag">Laravel</span
+              ><span class="tag">CodeIgniter</span
+              ><span class="tag">MYSQL DBMS</span> <span class="tag">SQL</span
+              ><span class="tag">JWT</span><span class="tag">Curl</span>
+              <span class="tag">PHPMailer</span><span class="tag">Razorpay</span
+              ><span class="tag">Google OAuth</span>
+              <span class="tag">Google Sheets</span
+              ><span class="tag">Google Recaptcha</span
+              ><span class="tag">Facebook OAuth</span>
+              <span class="tag">IIS</span><span class="tag">Postman</span
+              ><span class="tag">Composer</span>
+            </div>
+            <div class="clear"></div>
+          </section>
+
+          <section class="section">
+            <h2 class="title">SKILLS</h2>
+            <div class="tags">
+              <span class="tag">Responsive Design</span
+              ><span class="tag">UI/UX Optimization</span>
+              <span class="tag">Code Efficiency</span
+              ><span class="tag">Database Optimization</span>
+            </div>
+            <div class="clear"></div>
+          </section>
+
+          <section class="section">
+            <h2 class="title">LANGUAGES</h2>
+            <div class="tags">
+              <span class="tag">English</span><span class="tag">Hindi</span>
+            </div>
+            <div class="clear"></div>
+          </section>
+
+          <section class="section">
+            <h2 class="title">ADDITIONAL</h2>
+            <div class="tags">
+              <span class="tag">CPanel</span><span class="tag">Photoshop</span>
+              <span class="tag">Illustrator</span>
+            </div>
+            <div class="clear"></div>
+          </section>
+        </aside>
+
+        <main class="main">
+          <section class="section">
+            <h2 class="title">PROFESSIONAL EXPERIENCE</h2>
+            <div class="timeline">
+              <article class="job">
+                <div class="job-head">
+                  <h2>PHP Developer</h2>
+                  <span class="job-date">Oct 2025 - Present</span>
+                  <div class="clear"></div>
+                </div>
+                <div class="company">Seeken</div>
+                <p>
+                  PHP development and maintenance of dynamic web applications
+                  with backend, database and API responsibilities.
+                </p>
+              </article>
+
+              <article class="job">
+                <div class="job-head">
+                  <h2>PHP Developer</h2>
+                  <span class="job-date">May 2025 - Aug 2025</span>
+                  <div class="clear"></div>
+                </div>
+                <div class="company">Vision Data Lab</div>
+                <p>
+                  PHP development and website work. Employment period noted in
+                  the source resume as ending due to injury.
+                </p>
+              </article>
+
+              <article class="job">
+                <div class="job-head">
+                  <h2>Web Developer</h2>
+                  <span class="job-date">Feb 2020 - Aug 2021</span>
+                  <div class="clear"></div>
+                </div>
+                <div class="company">Z Aksys</div>
+                <p>
+                  Web development using PHP, frontend technologies, databases
+                  and related web tools.
+                </p>
+              </article>
+
+              <article class="job">
+                <div class="job-head">
+                  <h2>Web Developer</h2>
+                  <span class="job-date">Jan 2018 - Feb 2020</span>
+                  <div class="clear"></div>
+                </div>
+                <div class="company">Genie Soft System</div>
+                <p>
+                  Website development and maintenance using PHP and frontend
+                  technologies.
+                </p>
+              </article>
+
+              <article class="job">
+                <div class="job-head">
+                  <h2>PHP Web Developer</h2>
+                  <span class="job-date">Jan 2017 - Jan 2018</span>
+                  <div class="clear"></div>
+                </div>
+                <div class="company">360 Digital Hub</div>
+                <p>
+                  PHP web development and database-driven website
+                  implementation.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="title">EDUCATION</h2>
+            <div class="education">
+              <div class="edu">
+                <h3>Maulana Azad University</h3>
+                <p>B.Tech in Computer Science · 77% · 2025</p>
+              </div>
+              <div class="edu">
+                <h3>Government Polytechnic College</h3>
+                <p>Diploma in Computer Science · 65% · 2017</p>
+              </div>
+              <div class="edu">
+                <h3>Malree Public School</h3>
+                <p>10th Passed · 2014</p>
+              </div>
+            </div>
+          </section>
+          <div class="clear"></div>
+
+          <section class="section">
+            <h2 class="title">PROJECTS</h2>
+            <div class="projects">
+              <a class="project" href="https://amardoors.in" target="_blank"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ><span>amardoors.in</span></a
+              >
+              <a
+                class="project"
+                href="https://edenacademy.co.in"
+                target="_blank"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ><span>edenacademy.co.in</span></a
+              >
+              <a
+                class="project"
+                href="https://www.marshallsindia.com"
+                target="_blank"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ><span>marshallsindia.com</span></a
+              >
+              <a
+                class="project"
+                href="https://www.vision-datalabs.com"
+                target="_blank"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ><span>vision-datalabs.com</span></a
+              >
+              <a class="project" href="https://addobiz.com" target="_blank"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ><span>addobiz.com</span></a
+              >
+              <a class="project red-text" data="remove"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ><span>patralamp.com</span></a
+              >
+              <a class="project red-text" data="remove"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ><span>sharepa.in</span></a
+              >
+              <a class="project red-text" data="remove"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ><span>absolutestore.com</span></a
+              >
+              <a class="project red-text" data="change"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ><span>sunbeamceiling.com</span></a
+              >
+              <a class="project red-text" data="remove"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ><span>aksgift.com</span></a
+              >
+            </div>
+          </section>
+        </main>
+        <div class="clear"></div>
+      </div>
+      <footer class="footer">PHP Developer · Shadab Shaikh</footer>
+    </div>
+
+    <div id="modal" class="modal-overlay">
+      <div class="modal-box">
+        <button id="closeBtn" class="modal-close">×</button>
+        <div class="modal-head">Alert <i class="fa fa-alert"></i></div>
+        <div class="modal-body">
+          <span id="model-text"></span>
+          <button class="ok">OK</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  const projects = document.querySelectorAll(".project");
+  const modal = document.querySelector(".modal-overlay"); // Changed to querySelector for a single modal
+  const closeBtns = document.querySelectorAll(".modal-close");
+  const okBtns = document.querySelectorAll(".ok");
+  const text = document.getElementById("model-text");
+
+  // Handle opening the modal on project click
+  projects.forEach((project) => {
+    project.addEventListener("click", function () {
+      const attrValue = this.getAttribute("data");
+
+      if (!attrValue) return; // Exit if data attribute is missing or empty
+
+      if (attrValue === "change") {
+        text.innerHTML =
+          "This website is no longer active. Thank you for your past support and visits";
+      } else if (attrValue === "remove") {
+        text.innerHTML =
+          "This website is no longer active. Thank you for your past support and visits";
+      }
+
+      modal.classList.add("show");
+    });
+  });
+
+  // Helper function to hide modal
+  const closeModal = () => modal.classList.remove("show");
+
+  // Attach close listeners to all close buttons
+  closeBtns.forEach((btn) => btn.addEventListener("click", closeModal));
+  okBtns.forEach((btn) => btn.addEventListener("click", closeModal));
+</script>
